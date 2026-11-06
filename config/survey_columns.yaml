@@ -1,0 +1,172 @@
+# Column maps for the Leo annual ME surveys (Google Forms exports, sheet "Form Responses 1").
+# Mapped by position, with a header-prefix check so a re-ordered export fails loudly.
+# PII columns are dropped on load and never written anywhere.
+
+pain_scale_note: >
+  Items ask "how much do you suffer from / enjoy this?" on 1-5 with 3 = neutral.
+  Form anchors (verified from screenshots of the Google Form): 1 = enjoy very much, 5 = suffer very much.
+  pain = raw score.
+
+time_units_minutes:   # working-time conversion
+  "דקות": 1
+  "שעות": 60
+  "ימים": 480        # 8 h working day
+  "שבועות": 2400     # 5 working days
+  "חודשים": 10080    # 21 working days
+censored_value: "יותר מ-50"   # "more than 50" -> 50, flagged as right-censored
+
+"2024":
+  expected_rows: 556
+  pii: [1, 8]                 # email, salary
+  drop: [10, 15, 20, 25, 35, 38, 43, 45, 46, 47, 48, 49, 50, 51, 52, 53]  # notes / marketing / empty
+  fields:
+    0: {key: timestamp, prefix: "Timestamp"}
+    1: {key: email, prefix: "Email"}
+    2: {key: profession, prefix: "מה המקצוע"}
+    3: {key: gender, prefix: "בחר מין"}
+    4: {key: experience_band, prefix: "כמה שנות ניסיון"}
+    5: {key: industry, prefix: "באיזו תעשיה"}
+    6: {key: org_size, prefix: "מה גודל הארגון"}
+    7: {key: project_duration, prefix: "כמה זמן לוקח פרויקט"}
+    9: {key: region, prefix: "באיזה אזור"}
+    30: {key: hard_question_examples, prefix: "תן דוגמאות לשאלות"}
+    44: {key: other_pain_points, prefix: "הקשיים המקצועיים"}
+  tasks:
+    part_search_internal:   {label: "Search for an existing part in company data", times: 11, pain: 12, dur: 13, unit: 14, prefix_dur: "כמה זמן זה לוקח לך? \n[חיפוש של חלק אחד]"}
+    component_search_catalog: {label: "Search for a component in supplier catalogs", times: 16, pain: 17, dur: 18, unit: 19, prefix_dur: "כמה זמן זה לוקח לך? \n[חיפוש של רכיב אחד]"}
+    model_catalog_part:     {label: "Model a catalog part yourself in CAD", times: 21, pain: 22, dur: 23, unit: 24, prefix_dur: "כמה זמן זה לוקח לך? \n[מידול של רכיב אחד]"}
+    answer_engineering_question: {label: "Find the answer to an engineering question", times: 26, pain: 27, dur: 28, unit: 29, prefix_dur: "כמה זמן זה לוקח לך? \n[מציאת תשובה לשאלה טיפוסית]"}
+    convert_mfg_method:     {label: "Convert a part design to another manufacturing method", times: 39, pain: 40, dur: 41, unit: 42, prefix_dur: "כמה זמן זה לוקח לך? \n[המרה של חלק אחד]"}
+  binary_tasks:
+    design_to_org_rules:    {label: "Design to company rules and preferences", applies: 31, pain: 32}
+    design_to_standards:    {label: "Design to external standards (ISO, MIL, SAE, EN)", applies: 33, pain: 34}
+    elegant_design_emphasis: {label: "Meet an emphasis on elegant design", applies: 36, pain: 37}
+
+"2025":
+  expected_rows: 600
+  pii: [1, 6, 23, 49, 50, 51]   # email, company, salary, full name, work email, phone
+  drop: [25, 26, 27, 28, 29, 30, 47, 48]  # commute, meals, vacation, perks, notes, marketing opt-ins
+  fields:
+    0: {key: timestamp, prefix: "Timestamp"}
+    1: {key: email, prefix: "Email"}
+    2: {key: gender, prefix: "בחר מין"}
+    3: {key: age, prefix: "גיל"}
+    4: {key: seniority, prefix: "מה רמת הבכירות"}
+    5: {key: can_adopt_tools, prefix: "?האם יש לך את הסמכות"}
+    7: {key: industry, prefix: "באיזו תעשיה"}
+    8: {key: specialization, prefix: "מה ההתמחות"}
+    9: {key: years_experience, prefix: "כמה שנות ניסיון"}
+    10: {key: n_jobs, prefix: "בכמה משרות"}
+    11: {key: top_problems, prefix: "מה הבעיות המקצועיות"}
+    12: {key: education, prefix: "מה רמת ההשכלה"}
+    16: {key: org_size, prefix: "מה גודל הארגון"}
+    17: {key: team_engineers, prefix: "כמה מהנדסים"}
+    18: {key: cad, prefix: "באיזו תכנת"}
+    20: {key: plm, prefix: "משתמשים בתוכנת PLM"}
+    22: {key: infosec_team, prefix: "האם יש לכם צוות בטחון"}
+    24: {key: region, prefix: "באיזה אזור"}
+    31: {key: ai_dream, prefix: "בחלום הכי פרוע"}
+    32: {key: ai_today_wish, prefix: "ועכשיו במציאות"}
+    33: {key: uses_generic_ai, prefix: "האם אתה משתמש בכלי בינה"}
+    34: {key: ai_tools, prefix: "באיזה כלים"}
+    35: {key: ai_uses, prefix: "לאילו שימושים"}
+    36: {key: ai_frequency, prefix: "באיזו תדירות אתה משתמש בכלים"}
+    37: {key: ai_barriers, prefix: "מה מונע ממך להשתמש בכלים"}
+    38: {key: ai_reasons, prefix: "למה התחלת להשתמש בכלים"}
+    39: {key: ai_satisfaction, prefix: "כמה אתה מרוצה מכלי"}
+    40: {key: leo_use, prefix: "האם אתה משתמש/השתמשת"}
+    41: {key: leo_satisfaction, prefix: "כמה אתה מרוצה מ-ליאו"}
+    43: {key: leo_frequency, prefix: "באיזו תדירות אתה משתמש בליאו"}
+    44: {key: leo_barriers, prefix: "מה מונע ממך להשתמש בליאו"}
+    46: {key: ai_concerns, prefix: "אילו חששות"}
+    52: {key: pays_for_ai, prefix: "האם אתה משלם"}
+
+# Hebrew -> English labels for categorical answers (used in every table and figure)
+translate:
+  "מהנדס מכונות [Mechanical Engineer]": "Mechanical engineer"
+  "איש תכן [Mechanical Designer]": "Mechanical designer"
+  "זכר": "Male"
+  "נקבה": "Female"
+  "מרכז": "Center"
+  "צפון": "North"
+  "דרום": "South"
+  "חו\"ל": "Abroad"
+  "חודש עד שנה": "1-12 months"
+  "1-2 שנים": "1-2 years"
+  "2-3 שנים": "2-3 years"
+  "3-4 שנים": "3-4 years"
+  "4 שנים ומעלה": "4+ years"
+  "פחות מחודש": "< 1 month"
+  "כן": "Yes"
+  "לא": "No"
+  "אולי": "Maybe"
+  "לא יודע": "Don't know"
+  "מהנדס": "Engineer"
+  "ג'וניור": "Junior"
+  "סטודנט": "Student"
+  "ראש צוות": "Team lead"
+  "אחר": "Other"
+  "מהנדס בכיר (סיניור) שאינו מנהל": "Senior (non-manager)"
+  "מהנדס בכיר (סיניור)": "Senior (non-manager)"
+  "ראש מחלקה": "Department head"
+  "מנכ\"ל/C-level": "C-level"
+  "מתכנן": "Designer"
+  "ראש חטיבה": "Division head"
+  "מהנדס תכנון / תכן מכני": "Mechanical design"
+  "מהנדס פיתוח מכני / מוצרים": "Product development"
+  "מהנדס NPI / תהליך / ייצור": "NPI / process / manufacturing"
+  "מנהל פרויקטים / מהנדס מערכת": "Project / systems"
+  "מהנדס אנליזות (FEA / CFD)": "Analysis (FEA/CFD)"
+  "מהנדס רכש טכני / תפעול": "Technical procurement / operations"
+  "מהנדס מכירות": "Sales engineering"
+  "תואר ראשון": "BSc"
+  "תואר שני": "MSc"
+  "בגרות": "High school"
+  "12 שנות לימוד": "High school"
+  "הנדסאי": "Practical engineer"
+  "דוקטורט": "PhD"
+  "אין לנו PLM": "No PLM"
+  "1-2 פעמים בשבוע": "1-2x / week"
+  "כל יום": "Daily"
+  "3-5 פעמים בשבוע": "3-5x / week"
+  "כמה פעמים ביום": "Several times a day"
+  "פחות מפעם בשבוע": "< 1x / week"
+  "עדיין לא עקבי": "< 1x / week"
+  "לא - אף פעם לא השתמשתי": "Never used"
+  "פעם השתמשתי, היום לא": "Used before, not now"
+  "כן - משתמש היום": "Uses today"
+
+multi_select:
+  ai_uses:
+    "שאלות טכניות/הנדסיות": "Technical / engineering questions"
+    "הסבר מושגים טכניים": "Explaining technical concepts"
+    "כתיבת מסמכים": "Writing documents"
+    "כתיבת מיילים": "Writing emails"
+    "תרגום טקסט": "Translation"
+    "ביצוע חישובים": "Calculations"
+    "סיעור מוחין לקונספטים חדשים": "Brainstorming new concepts"
+    "סיעור מוחין לשיפור קונספטים קיימים": "Improving existing concepts"
+    "בחירת רכיבים וחלקים": "Component and part selection"
+    "בדיקות איכות": "Quality checks"
+    "סימולציה": "Simulation"
+  ai_barriers:
+    "חוסר אמון בתוצאות": "Low trust in the results"
+    "לא עונה לצרכים שלי": "Does not meet my needs"
+    "לא משתלב בתהליכי עבודה קיימים": "Does not fit existing workflows"
+    "חשש מאבטחת מידע / זכויות קניין רוחני": "Data security / IP concerns"
+    "הגבלות מצד הארגון": "Company restrictions"
+    "שימוש מורכב מדי": "Too complex to use"
+  ai_reasons:
+    "חיסכון בזמן": "Save time"
+    "שיפור בדיוק": "Improve accuracy"
+    "סקרנות אישית": "Personal curiosity"
+    "החלפה של עבודה ידנית": "Replace manual work"
+    "בהנחיית הנהלה": "Management directive"
+  ai_tools:
+    "ChatGPT": "ChatGPT"
+    "Gemini": "Gemini"
+    "Copilot": "Copilot"
+    "Co pilot": "Copilot"
+    "Claud": "Claude"
+    "Claude": "Claude"
+    "Perplexity": "Perplexity"

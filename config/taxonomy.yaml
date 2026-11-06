@@ -1,0 +1,148 @@
+# WildMech taxonomy v1.0
+# v0.1 was built top-down from design-process literature (Pahl & Beitz phases) and piloted on 2024 survey free text.
+# v1.0 adds three codes found bottom-up in real Leo queries: GEN (generate a design or CAD model),
+# EDU (learning and coursework) and UNK (not classifiable on its own: continuations, greetings, agent-flow replies).
+#
+# Each query gets ONE primary L1 code, optional L2 code, optional secondary L1 code.
+# Every L1 maps to one design-workflow phase (for the page-1 figure).
+
+version: "1.0"
+
+phases:
+  P1: {name: "Requirements and standards", order: 1}
+  P2: {name: "Concept and architecture", order: 2}
+  P3: {name: "Embodiment and sizing", order: 3}
+  P4: {name: "Detail design and documentation", order: 4}
+  P5: {name: "Manufacturing and sourcing", order: 5}
+  P6: {name: "Verification and in-service", order: 6}
+  PL: {name: "Learning and coursework", order: 7}
+  P0: {name: "Outside mechanical design", order: 8}
+
+l1:
+  STD:
+    name: "Standards, codes and regulations"
+    phase: P1
+    description: "Find, interpret or comply with a standard, code or regulation (ISO, ASME, MIL, SAE, EN, DIN, API, FDA, internal design rules)."
+    l2: [find_standard, interpret_clause, compliance_check, internal_design_rules]
+    examples: ["Which standard defines fine leak testing?", "What does ASME Y14.5 say about datum targets?"]
+  MEC:
+    name: "Concept and mechanism design"
+    phase: P2
+    description: "Generate or compare concepts, mechanisms, architectures or layouts for a function."
+    l2: [concept_generation, mechanism_synthesis, architecture_tradeoff, reverse_engineering]
+    examples: ["Four-bar linkage for a folding drone arm", "How to hold a load with rubber pads and hydraulic pistons"]
+  GEN:
+    name: "Generate a design or CAD model"
+    phase: P2
+    description: "Ask the AI to produce a design artifact for a described object: a 3D/CAD model, an assembly, a concept image or render, or a modification of a generated model. Includes 'design me X' requests for a physical product."
+    l2: [text_to_cad, image_or_drawing_to_cad, concept_image, iterate_generated_model, whole_product_design]
+    examples: ["Create a parametric CAD model of a helical gear, 40 teeth, module 2", "Design an enclosure for this PCB"]
+  CAL:
+    name: "Engineering calculations and analysis"
+    phase: P3
+    description: "Hand calculation or analytical estimate: strength, fatigue, thermal, fluids, dynamics, vibration, kinematics, buoyancy, unit conversion."
+    l2: [structural, fatigue_fracture, thermal, fluids, dynamics_vibration, kinematics, units_conversion, other]
+    examples: ["Pressure drop in a pipe run", "Heat sink fin dissipation", "Load share in a statically indeterminate bolt group"]
+  CMP:
+    name: "Component selection and sizing"
+    phase: P3
+    description: "Choose or size an off-the-shelf component: bearing, motor, gearbox, spring, actuator, sensor, heat sink, valve, linear guide."
+    l2: [bearings_guides, motors_actuators, springs, thermal_components, sensors, fluid_components, other]
+    examples: ["Motor torque for a lead-screw axis", "Spring for a multi-axis preload"]
+  MAT:
+    name: "Materials, coatings and treatments"
+    phase: P3
+    description: "Select a material, alloy, coating, finish or heat treatment; corrosion, compatibility, properties."
+    l2: [material_selection, properties_lookup, coating_finish, heat_treatment, corrosion_compatibility]
+    examples: ["Non-conductive coating for aluminum", "4340 heat treatment without hydrogen embrittlement"]
+  JNT:
+    name: "Joints, fasteners and sealing"
+    phase: P3
+    description: "Bolted, welded, bonded, threaded and snap joints; preload and torque; O-rings, gaskets and seals."
+    l2: [bolted_threaded, welded_bonded, snap_press_fit, seals_orings]
+    examples: ["Bolt torque with a metal gasket at high temperature", "Custom O-ring groove dimensions"]
+  SIM:
+    name: "Simulation setup and interpretation"
+    phase: P3
+    description: "Set up, run or interpret FEA, CFD, thermal or multibody simulation."
+    l2: [fea, cfd, thermal_sim, multibody, results_interpretation]
+    examples: ["Boundary conditions for a bolted flange in FEA"]
+  GDT:
+    name: "Tolerancing, fits and GD&T"
+    phase: P4
+    description: "Tolerances, fits, GD&T callouts, tolerance stack-ups, process capability."
+    l2: [fits, gdt_callouts, stackup, process_tolerances]
+    examples: ["Interference fit for a bearing in milled aluminum", "Stack-up for a locking mechanism"]
+  CAD:
+    name: "CAD, PDM and PLM how-to"
+    phase: P4
+    description: "How to do something in a CAD, PDM or PLM tool; modeling technique; automation and macros."
+    l2: [modeling_technique, drawings_tool, pdm_plm, automation_api]
+    examples: ["Concentric fillet fails in an unstable model", "Model a braided spring"]
+  SRCH:
+    name: "Find internal parts and knowledge"
+    phase: P4
+    description: "Find an existing part, assembly, drawing, document or past decision inside the company's own data."
+    l2: [part_reuse, document_search, past_decision, internal_standard]
+    examples: ["Do we already have a bracket like this?", "Where is the test report for the X pump?"]
+  DOC:
+    name: "Documentation, drawings and BOM"
+    phase: P4
+    description: "Write or check drawings, BOMs, specs, reports, ECOs, work instructions, emails."
+    l2: [drawing_check, bom, report_spec, eco_change, communication]
+    examples: ["Draft a design review summary", "Check this drawing for missing callouts"]
+  DFM:
+    name: "Manufacturing processes and DFM/DFA"
+    phase: P5
+    description: "Process choice and limits (machining, sheet metal, molding, casting, AM, welding), DFM/DFA rules, process conversion, cost drivers."
+    l2: [machining, sheet_metal, molding_casting, additive, process_conversion, assembly_dfa]
+    examples: ["Minimum bend radius for 3 mm 5052", "Sink marks in a molded part"]
+  SUP:
+    name: "Sourcing, suppliers and cost"
+    phase: P5
+    description: "Find a supplier or catalog item, alternatives, availability, lead time, cost estimate."
+    l2: [supplier_search, alternatives, cost_estimate]
+    examples: ["Alternative to an obsolete connector", "Fastest coating vendor option"]
+  TST:
+    name: "Testing, validation and qualification"
+    phase: P6
+    description: "Plan or interpret tests, qualification, inspection and quality checks."
+    l2: [test_planning, test_standards, inspection_quality, data_analysis]
+    examples: ["Which mechanical tests for this part?", "Fine leak test per MIL-STD"]
+  FAIL:
+    name: "Troubleshooting and failure analysis"
+    phase: P6
+    description: "Diagnose a failure, defect, mismatch or test-versus-model discrepancy; root cause."
+    l2: [field_failure, manufacturing_defect, model_test_mismatch, assembly_issue]
+    examples: ["Why is there 12 C between lab test and analysis?", "Parts do not align despite tolerances"]
+  EDU:
+    name: "Learning and coursework"
+    phase: PL
+    description: "Explain an engineering or physics concept with no design task attached, or solve a textbook, exam or homework-style problem."
+    l2: [concept_explanation, textbook_problem, literature_pointer, study_planning]
+    examples: ["Walk me through the 1D heat equation", "A block-and-pulley system is released from rest..."]
+  OOS:
+    name: "Outside mechanical design"
+    phase: P0
+    description: "Electronics, software, architecture and buildings, business writing, translation, general knowledge, non-engineering homework, and questions about the assistant itself."
+    l2: [electronics, software_code, buildings_architecture, writing_business, general, about_the_assistant]
+    examples: ["Write a Python script", "Pick a camera lens"]
+
+  UNK:
+    name: "Not classifiable on its own"
+    phase: P0
+    description: "Greeting, bare continuation of an earlier exchange, reply to the assistant's clarifying question inside an agentic task, or complaint with no task. Excluded from task shares and reported separately."
+    l2: [continuation, greeting, agent_flow_reply, complaint]
+    examples: ["yes all of that", "There are only 3 members, not 4"]
+
+# Cross-cutting facets (one value each per query)
+facets:
+  intent: [lookup, explain, calculate, select, design, diagnose, how_to_tool, generate_document]
+  complexity:
+    C1: "Single fact or lookup"
+    C2: "One rule or one calculation"
+    C3: "Multi-step reasoning or trade-off between options"
+    C4: "Open-ended design judgment that needs context the query does not hold"
+  needs_internal_data: [yes, no]
+  needs_geometry: [yes, no]
+  verifiable_answer: [yes, no]   # a checkable number or closed-form answer exists

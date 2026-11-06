@@ -1,0 +1,28 @@
+# WildMech run config. Paths to real data come from env vars so nothing private lands in the repo.
+data:
+  export_dir: ${WILDMECH_EXPORT_DIR}        # folder with conversations/messages/users/orgs (.parquet or .jsonl)
+  deny_terms_file: ${WILDMECH_DENY_TERMS}   # private list: customer, org, product, project names (one per line)
+  part_number_patterns_file: ${WILDMECH_PN_PATTERNS}  # optional private regexes for customer PN formats
+
+llm:
+  backend: anthropic            # anthropic | rules (offline baseline)
+  model: claude-sonnet-5-5      # classification model; pin the exact version used in the paper
+  cache_dir: runs/llm_cache     # stores de-identified outputs only
+
+pipeline:
+  min_conversation_user_chars: 5
+  max_conversations: null       # set for dry runs
+  rephrase_threshold: 0.6
+  rephrase_window_min: 15
+  cluster_embedding: tfidf_svd  # sentence_transformers for the paper run
+  cluster_k: null               # null = choose by silhouette
+
+privacy:
+  min_users_per_cell: 10
+  min_orgs_per_cell: 3
+  survey_min_cell: 5
+
+annotation:
+  sample_size: 600
+  min_per_category: 15
+  raters: 3                     # Leo engineers; each item labeled by 2, third adjudicates
