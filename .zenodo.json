@@ -1,0 +1,8 @@
+{
+  "title": "WildMech: taxonomy, codebook and analysis code for \"What Do Mechanical Engineers Ask an AI Design Assistant?\"",
+  "upload_type": "software",
+  "description": "Taxonomy (18 mechanical engineering task categories), codebook, analysis code and aggregate tables for a study of real-world requests to an AI assistant for mechanical engineering and two practitioner surveys. No row-level user data.",
+  "creators": [{"name": "Farid, Maor", "affiliation": "Leo AI, Inc."}],
+  "license": "MIT",
+  "keywords": ["engineering design", "large language models", "taxonomy", "human-AI interaction", "mechanical engineering"]
+}

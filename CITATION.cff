@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use WildMech, please cite the paper below."
+title: "WildMech: taxonomy, codebook and analysis code"
+authors:
+  - family-names: Farid
+    given-names: Maor
+    affiliation: "Leo AI, Inc."
+license: MIT
+preferred-citation:
+  type: article
+  title: "What Do Mechanical Engineers Ask an AI Design Assistant? Evidence From Two Years of Real-World Use and Two Practitioner Surveys"
+  authors:
+    - family-names: Farid
+      given-names: Maor
+      affiliation: "Leo AI, Inc."
+  year: 2026
