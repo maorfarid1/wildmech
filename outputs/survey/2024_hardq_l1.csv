@@ -1,0 +1,15 @@
+task_l1,n,share,name,phase
+MAT,39,0.2867647058823529,"Materials, coatings and treatments",P3
+CAL,20,0.14705882352941177,Engineering calculations and analysis,P3
+JNT,15,0.11029411764705882,"Joints, fasteners and sealing",P3
+GDT,13,0.09558823529411764,"Tolerancing, fits and GD&T",P4
+CMP,12,0.08823529411764706,Component selection and sizing,P3
+DFM,11,0.08088235294117647,Manufacturing processes and DFM/DFA,P5
+STD,6,0.04411764705882353,"Standards, codes and regulations",P1
+OOS,4,0.029411764705882353,Outside mechanical design,P0
+TST,4,0.029411764705882353,"Testing, validation and qualification",P6
+MEC,4,0.029411764705882353,Concept and mechanism design,P2
+CAD,3,0.022058823529411766,"CAD, PDM and PLM how-to",P4
+FAIL,3,0.022058823529411766,Troubleshooting and failure analysis,P6
+SIM,1,0.007352941176470588,Simulation setup and interpretation,P3
+SRCH,1,0.007352941176470588,Find internal parts and knowledge,P4

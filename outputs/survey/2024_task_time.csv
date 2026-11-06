@@ -1,0 +1,6 @@
+task,label,N,relevance_rate,n_valid_time,median_times_per_project,median_minutes_each,median_hours_per_project,median_hours_ci_lo,median_hours_ci_hi,mean_hours_per_project_winsor,pain_mean,pain_high_share,censored_share,multi_unit_or_invalid_unit
+answer_engineering_question,Find the answer to an engineering question,547,0.8793418647166362,475,9.0,120.0,16.0,12.0,20.0,62.55947368421045,2.505197505197505,0.16632016632016633,0.10395010395010396,4
+convert_mfg_method,Convert a part design to another manufacturing method,547,0.6087751371115173,325,2.0,120.0,6.0,4.0,9.0,19.316153846153853,2.750750750750751,0.21021021021021022,0.018018018018018018,3
+component_search_catalog,Search for a component in supplier catalogs,547,0.8062157221206582,438,6.0,40.0,4.166666666666667,4.0,5.0,20.461111111111098,3.0136054421768708,0.2653061224489796,0.07709750566893424,1
+model_catalog_part,Model a catalog part yourself in CAD,547,0.7550274223034735,411,3.0,60.0,3.0,2.0,3.0,7.309570154095701,3.0121065375302662,0.3559322033898305,0.026634382566585957,1
+part_search_internal,Search for an existing part in company data,547,0.7751371115173674,420,10.0,10.0,1.7083333333333333,1.6666666666666667,2.5,6.746666666666667,3.1108490566037736,0.28773584905660377,0.16273584905660377,0

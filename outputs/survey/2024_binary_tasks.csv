@@ -1,0 +1,4 @@
+task,label,N,applies_rate,ambiguous_answers,pain_mean_if_applies,pain_high_share_if_applies
+design_to_org_rules,Design to company rules and preferences,547,0.7312614259597806,3,2.7525,0.1575
+design_to_standards,"Design to external standards (ISO, MIL, SAE, EN)",547,0.659963436928702,10,2.858725761772853,0.17174515235457063
+elegant_design_emphasis,Meet an emphasis on elegant design,547,0.6471663619744058,5,2.15819209039548,0.0847457627118644

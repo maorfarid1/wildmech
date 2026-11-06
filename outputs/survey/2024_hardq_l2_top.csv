@@ -1,0 +1,16 @@
+primary,l2,n
+MAT,coating_finish,18
+JNT,seals_orings,9
+MAT,material_selection,9
+CAL,structural,8
+CAL,thermal,8
+DFM,machining,6
+GDT,fits,6
+MAT,corrosion_compatibility,5
+STD,find_standard,5
+MAT,properties_lookup,4
+JNT,bolted_threaded,4
+CMP,motors_actuators,4
+GDT,stackup,4
+CAL,fluids,3
+CAD,modeling_technique,3
